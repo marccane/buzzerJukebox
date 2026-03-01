@@ -1,36 +1,7 @@
 #include "pitches.h"
-
+#include "test1.h"
 // ── Pin ──────────────────────────────────────────────
 const int BUZZER_PIN = 8;
-
-// ── Song data ────────────────────────────────────────
-// Song 1: Super Mario Theme (intro)
-int mario_notes[] = {
-  NOTE_E5,NOTE_E5,0,NOTE_E5,0,NOTE_C5,NOTE_E5,0,
-  NOTE_G5,0,0,0,NOTE_G4,0,0,0
-};
-int mario_dur[] = {
-  8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8
-};
-
-// Song 2: Tetris Theme
-int tetris_notes[] = {
-  NOTE_E5,NOTE_B4,NOTE_C5,NOTE_D5,NOTE_C5,NOTE_B4,
-  NOTE_A4,NOTE_A4,NOTE_C5,NOTE_E5,NOTE_D5,NOTE_C5,
-  NOTE_B4,NOTE_C5,NOTE_D5,NOTE_E5,NOTE_C5,NOTE_A4,NOTE_A4
-};
-int tetris_dur[] = {
-  4,8,8,4,8,8,4,8,8,4,8,8,4,8,4,4,4,4,4
-};
-
-// Song 3: Happy Birthday
-int birthday_notes[] = {
-  NOTE_C4,NOTE_C4,NOTE_D4,NOTE_C4,NOTE_F4,NOTE_E4,
-  NOTE_C4,NOTE_C4,NOTE_D4,NOTE_C4,NOTE_G4,NOTE_F4
-};
-int birthday_dur[] = {
-  8,8,4,4,4,2,8,8,4,4,4,2
-};
 
 // ── Song registry ────────────────────────────────────
 struct Song {
@@ -43,9 +14,10 @@ struct Song {
 Song songs[] = {
   { mario_notes,    mario_dur,    16, "Super Mario"    },
   { tetris_notes,   tetris_dur,   19, "Tetris Theme"   },
-  { birthday_notes, birthday_dur, 12, "Happy Birthday" }
+  { birthday_notes, birthday_dur, 12, "Happy Birthday" },
+  { bartok_suite_1mov_notes, bartok_suite_1mov_dur, bartok_suite_1mov_length, "Bartok" }
 };
-const int NUM_SONGS = 3;
+const int NUM_SONGS = 4;
 
 // ── Playback state ───────────────────────────────────
 int  currentSong  = 0;
@@ -75,13 +47,13 @@ void printStatus() {
 
 void startNote() {
   Song& s = songs[currentSong];
-  int bpm_divisor = 1000;             // tune this to change overall tempo
-  int dur = bpm_divisor / s.durations[currentNote];
+  int bpm_divisor = 1500;             // tune this to change overall tempo
+  int dur = bpm_divisor / pgm_read_word_near(s.durations + currentNote);
 
   if (s.notes[currentNote] == 0) {   // rest
     noTone(BUZZER_PIN);
   } else {
-    tone(BUZZER_PIN, s.notes[currentNote], dur * 0.9);
+    tone(BUZZER_PIN, pgm_read_word_near(s.notes + currentNote));
   }
 
   noteStart    = millis();
