@@ -1,5 +1,6 @@
 #include "pitches.h"
-#include "test1.h"
+#include "songs/dream_land_arduino.h"
+
 // ── Pin ──────────────────────────────────────────────
 const int BUZZER_PIN = 8;
 
@@ -12,12 +13,9 @@ struct Song {
 };
 
 Song songs[] = {
-  { mario_notes,    mario_dur,    16, "Super Mario"    },
-  { tetris_notes,   tetris_dur,   19, "Tetris Theme"   },
-  { birthday_notes, birthday_dur, 12, "Happy Birthday" },
-  { bartok_suite_1mov_notes, bartok_suite_1mov_dur, bartok_suite_1mov_length, "Bartok" }
+  { dream_land_notes,    dream_land_dur,    dream_land_length, "dream_land_notes"    },
 };
-const int NUM_SONGS = 4;
+const int NUM_SONGS = sizeof(songs)/sizeof(songs[0]);
 
 // ── Playback state ───────────────────────────────────
 int  currentSong  = 0;
