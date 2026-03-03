@@ -5,8 +5,8 @@ const int BUZZER_PIN = 8;
 
 // ── Song registry ────────────────────────────────────
 struct Song {
-  int*  notes;
-  int*  durations;
+  const int*  notes;
+  const int*  durations;
   int   length;
   const char* name;
 };
