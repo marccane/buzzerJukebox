@@ -1,0 +1,27 @@
+// Song: donkey_kong_wins
+// Generated from: packmidis/Games/donkey_kong_wins.mid
+// Notes: 49
+
+const int donkey_kong_wins_notes[] PROGMEM = {
+  NOTE_E2,NOTE_FS3,NOTE_FS3,NOTE_E2,NOTE_FS3,NOTE_FS3,
+  NOTE_E2,NOTE_FS3,NOTE_FS3,NOTE_E2,NOTE_FS3,NOTE_FS3,
+  NOTE_E2,NOTE_FS3,NOTE_FS3,NOTE_E2,NOTE_FS3,NOTE_FS3,
+  NOTE_E2,NOTE_FS3,NOTE_FS3,NOTE_E2,NOTE_FS3,NOTE_FS3,
+  NOTE_E2,NOTE_FS3,NOTE_FS3,NOTE_E2,NOTE_FS3,NOTE_FS3,
+  NOTE_E2,NOTE_FS3,NOTE_FS3,NOTE_E2,NOTE_FS3,NOTE_FS3,
+  NOTE_E2,NOTE_FS3,NOTE_FS3,NOTE_E2,NOTE_FS3,NOTE_FS3,
+  NOTE_CS3,NOTE_E3,NOTE_A3,NOTE_D2,NOTE_E2,NOTE_FS3,
+  NOTE_G3
+};
+const int donkey_kong_wins_dur[] PROGMEM = {
+  16,16,16,16,16,16,
+  16,16,16,16,16,16,
+  16,16,16,16,16,16,
+  16,16,16,16,16,16,
+  16,16,16,16,16,16,
+  16,16,16,16,16,16,
+  16,16,16,16,16,16,
+  4,4,4,1,1,1,
+  1
+};
+const int donkey_kong_wins_length = 49;
