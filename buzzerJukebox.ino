@@ -1,7 +1,7 @@
 #include "pitches.h"
 
 // ── Pin ──────────────────────────────────────────────
-const int BUZZER_PIN = 8;
+const int BUZZER_PIN = 4;
 
 // ── Song registry ────────────────────────────────────
 struct Song {
@@ -90,7 +90,9 @@ void printHelp() {
 
 // ── Setup ────────────────────────────────────────────
 void setup() {
-  Serial.begin(9600);
+  delay(100);
+  Serial.begin(74880);
+  delay(100);
   pinMode(BUZZER_PIN, OUTPUT);
   printHelp();
   printStatus();
