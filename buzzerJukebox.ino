@@ -78,6 +78,7 @@ void skipSong() {
 }
 
 void printHelp() {
+  Serial.println();
   Serial.println("─────────────────────────────");
   Serial.println(" BUZZER JUKEBOX - Commands");
   Serial.println("─────────────────────────────");
@@ -90,9 +91,7 @@ void printHelp() {
 
 // ── Setup ────────────────────────────────────────────
 void setup() {
-  delay(100);
   Serial.begin(74880);
-  delay(100);
   pinMode(BUZZER_PIN, OUTPUT);
   printHelp();
   printStatus();
